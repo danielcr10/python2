@@ -44,6 +44,39 @@ def algarismoDigitoVerificador(PB):
         return PB % 8
     else:
         return PB % 7
-'''def digitosVerificadores(intN)'''
-Área de anexos
 
+def parteBaseDigitoVerificador(numero):
+    alg1 = numero//100
+    alg2 = (numero%100)//10
+    alg3 = numero%10
+    
+    pb = alg1*8 + alg2*4 + alg3*3
+    return pb
+
+def digitosVerificadores(numero):
+    # trata o caso com menos de 6 algarismos
+    dif = 6 - len(str(numero))
+    numero = '0' * dif + str(numero)
+    numero = int(numero)
+
+    pb1 = numero%1000
+    pb2 = numero//1000
+
+    pb1 = parteBaseDigitoVerificador(pb1)
+    pb2 = parteBaseDigitoVerificador(pb2)
+
+    unid = algarismoDigitoVerificador(pb1)
+    dez = algarismoDigitoVerificador(pb2)
+
+    verificador = dez * 10 + unid
+    print("Os digitos verificadores do inteiro %d formaram o inteiro %d." %(numero, verificador))
+    return
+
+def main():
+    digitosVerificadores(123457)
+    digitosVerificadores(1002)
+    digitosVerificadores(19)
+    return
+
+if __name__ == "__main__":
+    main()
