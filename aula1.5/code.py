@@ -53,3 +53,15 @@ def listaQtdVizIguais(lista):
 def listaSubElem(lista): # Exiba todas as possibilidades de sublistas com 2 elementos
   
   return
+
+
+
+# --------------------------------------------
+
+#         Exercicio 2
+
+# --------------------------------------------
+
+def traduzir(lSecreta):
+  print("TESTE")
+  return
