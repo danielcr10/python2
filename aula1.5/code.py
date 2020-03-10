@@ -7,7 +7,7 @@ def main():
 def listaMaiorElem (lista):
   maiorElem = lista[0]
   for elem in lista:
-    if elem < maiorElem:
+    if elem > maiorElem:
       maiorElem = elem
   return maiorElem
 
