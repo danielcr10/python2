@@ -1,8 +1,4 @@
-if __name__ == "__main__":
-    main()
 
-def main():
-  return
 
 def listaMaiorElem (lista):
   maiorElem = lista[0]
@@ -65,3 +61,11 @@ def listaSubElem(lista): # Exiba todas as possibilidades de sublistas com 2 elem
 def traduzir(lSecreta):
   print("TESTE")
   return
+
+
+def main():
+  return
+
+
+if __name__ == "__main__":
+    main()
