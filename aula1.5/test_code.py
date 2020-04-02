@@ -63,6 +63,57 @@ class TestListaOcorPrimElem(unittest.TestCase):
     self.assertEqual(result, 2)
     
       
+# ==============================================
+
+# Exercicio 2
+
+# ==============================================
+
+class TestTraduzir(unittest.TestCase):
+
+  def test_msg_padrao(self):
+    data = [2, 15, 13, 0, 4, 9, 1]
+    print(result)
+    self.assertEqual(result, "bom dia")
+
+  def test_msg_espacos(self):
+    data = [0, 0, 0, 0, 0, 0, 0]
+    result = traduzir(data)
+    self.assertEqual(result, "       ")
+
+  def test_msg_padrao(self):
+    data = [7, 9, 1, 14, 0, 18, 5, 9, 24]
+    result = traduzir(data)
+    self.assertEqual(result, "gian reix")
+
+
+# ==============================================
+
+# Exercicio 3
+
+# ==============================================
+
+class TestControlaFaltas(unittest.TestCase):
+
+  def test_msg_padrao(self):
+    data = [2, 15, 13, 0, 4, 9, 1]
+    print(result)
+    self.assertEqual(result, "bom dia")
+
+  def test_msg_espacos(self):
+    data = [0, 0, 0, 0, 0, 0, 0]
+    result = traduzir(data)
+    self.assertEqual(result, "       ")
+
+  def test_msg_padrao(self):
+    data = [7, 9, 1, 14, 0, 18, 5, 9, 24]
+    result = traduzir(data)
+    self.assertEqual(result, "gian reix")
+
+
+
+
+
 if __name__ == "__main__":
     unittest.main()
 

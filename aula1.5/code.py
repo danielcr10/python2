@@ -51,7 +51,6 @@ def listaSubElem(lista): # Exiba todas as possibilidades de sublistas com 2 elem
   return
 
 
-
 # --------------------------------------------
 
 #         Exercicio 2
@@ -59,11 +58,35 @@ def listaSubElem(lista): # Exiba todas as possibilidades de sublistas com 2 elem
 # --------------------------------------------
 
 def traduzir(lSecreta):
-  print("TESTE")
+  lista = list(" abcdefghijklmnopqrstuvwxyz")
+  msg = ""
+  for num in lSecreta:
+    msg = msg + lista[int(num)]
+  return msg
+
+
+# --------------------------------------------
+
+#         Exercicio 3
+
+# --------------------------------------------
+
+def controlaFaltas(lJogos):
+  faltas = {'Brasil':0, 'Italia':0, 'Espanha':0}
+  for jogo in lJogos:
+    faltas[jogo[0]] += jogo[2][0]
+    faltas[jogo[1]] += jogo[2][1]
+  total = faltas['Brasil'] + faltas['Italia'] + faltas['Espanha']
+  maisFaltas = max(faltas, key=faltas.get)
+  menosFaltas = min(faltas, key=faltas.get)
+  print('Total de faltas: ', total)
+  print('Time com menos faltas: ', menosFaltas)
+  print('Time com mais faltas: ', maisFaltas)
   return
 
-
 def main():
+  controlaFaltas([['Brasil', 'Italia', [10, 9]], [
+                 'Brasil', 'Espanha', [5, 7]], ['Italia', 'Espanha', [7, 8]]])
   return
 
 
