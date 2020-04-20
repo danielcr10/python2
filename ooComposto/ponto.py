@@ -1,5 +1,5 @@
 import math
-class Ponto:
+class Ponto():
   def __init__(self, x=0, y=0):
     # if(x is None)
     #   self.x = 0
@@ -21,7 +21,7 @@ class Ponto:
         return 3
 
   def exibe(self):
-    print(self.x)
+    print(self.x, self.y)
 
   def distancia(self, outroPonto):
     deltaX = self.x - outroPonto.x
