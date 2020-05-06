@@ -55,22 +55,28 @@ print(srResp)
 print('---------------- 5 - Tabela de Frequencia ----------------------')
 #criar uma series com valor (nota) - quantidade de ocorrencias do valor (nota)
 sNova = srResp.value_counts()
-sRel = sNova/sNova.sum()*100
+print(sNova)
 
-print('---------------- 6 - Tabela de Frequencia Relativa/Percentual ----------------------')
+print('------- 6 - Tabela de Frequencia Relativa/Percentual ----------------------')
+print(sNova/sNova.sum()*100)
 
 print('---------------- 7 - Medidas importantes ----------------------')
 print('NOTA MAXIMA:')
-
+print(srResp.max())
 print('Tirou nota maxima (apenas 1):')
+print(srResp.idxmax())
 
 print('NOTA MINIMA:')
+print(srResp.min())
 
 print('Tirou nota minima (apenas 1)')
+print(srResp.idxmin())
 
 print('MEDIA:')
+print(srResp.mean())
 
 print('MODA (MAIS FREQUENTE)')
+print(srResp.mode())
 
 print('---------------- 8 - Aplicando funcao sobre os valores ----------------------')
 # toda nota 2 deve passar a ser 3 e toda nota 4 deve passar a ser 4.5
