@@ -9,11 +9,12 @@ diret = os.path.dirname(os.path.realpath(__file__))
 nArq = 'resMultiplaEscolha.xlsx'
 path = os.path.join(diret, nArq)
 
-srResp = pd.read_excel(path, index_col=0, header=None, squeeze=True, decimal='.')
+srResp = pd.read_excel(path, index_col=0, header=None,
+                       squeeze=True, decimal='.')
 
-#index_col=0 - indica que a primeira coluna serve de indice
-#header=None - nao tem cabeçalho
-#squeeze=true - cria como series pq o normal seria cirar um Dataframe
+# index_col=0 - indica que a primeira coluna serve de indice
+# header=None - nao tem cabeçalho
+# squeeze=true - cria como series pq o normal seria cirar um Dataframe
 
 print('---------------- 1 - srResp ----------------------')
 print(srResp)
@@ -26,6 +27,7 @@ print('-------------- 3 - Conhecendo a serie --------------------')
 print('NUMERO DE LINHAS:')
 print(srResp.value_counts())
 print('\nVALORES:')
+print(srResp.values)
 
 print('\nINDICE:')
 print(srResp.index)
@@ -40,7 +42,8 @@ print('\nOs 3 últimos:')
 print(srResp.tail(3))
 
 print('---------------- 4 - Exibindo ordenadamente ----------------------')
-print('Ordenada por valores (notas):')    #nao ordena a series, apenas exibe a copia criada ordenada
+# nao ordena a series, apenas exibe a copia criada ordenada
+print('Ordenada por valores (notas):')
 print(srResp.sort_values())
 
 print('Ordenada DECRESCENTEMENTE por valor:')
@@ -53,7 +56,7 @@ print('A series propriamente dita não está ordenada:')
 print(srResp)
 
 print('---------------- 5 - Tabela de Frequencia ----------------------')
-#criar uma series com valor (nota) - quantidade de ocorrencias do valor (nota)
+# criar uma series com valor (nota) - quantidade de ocorrencias do valor (nota)
 sNova = srResp.value_counts()
 print(sNova)
 
@@ -80,4 +83,3 @@ print(srResp.mode())
 
 print('---------------- 8 - Aplicando funcao sobre os valores ----------------------')
 # toda nota 2 deve passar a ser 3 e toda nota 4 deve passar a ser 4.5
-
