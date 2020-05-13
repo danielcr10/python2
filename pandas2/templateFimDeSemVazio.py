@@ -4,14 +4,16 @@ Pandas1: Gastos do Final de Semana
 
 import pandas as pd
 import matplotlib.pyplot as plt
-# import os
+import os
 
-# diret = os.path.dirname(os.path.realpath(__file__))
-# nArq = 'GastosFimDeSemana.xlsx'
-# path = os.path.join(diret, nArq)
+# init_notebook_mode(connected=True)
 
-'''Criar series a partir do arquivo excel '''
-srGFS1= pd.read_excel('pandas2/GastosFimDeSemana.xlsx', index_col=0, squeeze=True, header=None, decimal='.')
+diret = os.path.dirname(os.path.realpath(__file__))
+nArq = 'GastosFimDeSemana.xlsx'
+path = os.path.join(diret, nArq)
+
+'''Criar series a partir do arquivo eahxcel '''
+srGFS1= pd.read_excel(path, index_col=0, squeeze=True, header=None, decimal='.')
 
 print('Gastos lidos do arquivo:')
 print(srGFS1)
@@ -87,4 +89,5 @@ print('\nGrafico do total de gastos por dia (pie)')
 plt.title('Gastos por dias')
 srGFS1Ajustada.dropna().sum(level=0).plot.pie()
 plt.savefig('pandas2/gastosPie.png')
+plt.show()
 plt.close()
