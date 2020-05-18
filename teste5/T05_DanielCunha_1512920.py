@@ -97,9 +97,11 @@ print(srNotas.sort_values(ascending=False).iloc[4:10])
       OU
     ALTERAR a nota dos 4 primeiros colocados. A nova nota eh 10.
 '''
-srNotasOrdenado = srNotas.sort_values(ascending=False)
-mudar = srNotasOrdenado.index[0:4]
-srNotas.loc[mudar] = 10.0
+# srNotasOrdenado = srNotas.sort_values(ascending=False)
+srNotas = srNotas.sort_values(ascending=False)
+# mudar = srNotasOrdenado.index[0:4]
+# srNotas.loc[mudar] = 10.0
+srNotas.iloc[0:4] = 10.0
 ''' EXIBIR a srNotas depois da alteração
 '''
 print(srNotas)
