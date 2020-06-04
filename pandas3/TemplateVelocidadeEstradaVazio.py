@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 #   Mostrar 10ºs elementos
 #
 print("vai")
-sDia3 = pd.read_excel('dia3.xlsx', header=0, index_col=0,
+sDia3 = pd.read_excel('pandas3/dia3.xlsx', header=0, index_col=0,
                       squeeze=True, decimal=',')
 print(sDia3.head(10))
 
@@ -115,10 +115,10 @@ print('\n--------------------------------------------------\n')
 # Acrescente-as  à  Series sDia3, gerando a series sTot
 # utilize o método .append
 # ============================================
-sDia2 = pd.read_excel('dia2.xlsx', header=0,
+sDia2 = pd.read_excel('pandas3/dia2.xlsx', header=0,
                       index_col=0, squeeze=True, decimal=',')
 print(sDia2.head(10))
-sDia1 = pd.read_excel('dia1.xlsx', header=0,
+sDia1 = pd.read_excel('pandas3/dia1.xlsx', header=0,
                       index_col=0, squeeze=True, decimal=',')
 print(sDia1.head(10))
 
