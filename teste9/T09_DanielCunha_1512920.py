@@ -125,15 +125,15 @@ print('\n15 - dfGeral com coluna SitParc (Situacao Parcial)')
 for index, row in dfGeral.iterrows():
     if 0 <= row['GParcial'] <= 6:
         dfGeral.loc[index,'SitParc'] = 'FINAL'
-    if 6 < row['GParcial'] <= 8:
+    elif 6 < row['GParcial'] <= 8:
         dfGeral.loc[index,'SitParc'] = 'APV_REG'
-    if 8 < row['GParcial'] <= 10:
+    else:
         dfGeral.loc[index,'SitParc'] = 'APV_MBOM'
 print(dfGeral)
 '''
 Exibir graficamente (barras) num único grafico apenas as notas de G1 e de G2  '''
 print('\n16 - Grafico de barras de G1 e G2 ')
-dfGeral.plot.bar()
+dfGeral.plot.bar(y=['G1', 'G2'])
 plt.show()
 
 ''' Incluir em dfGeral a coluna GFinal. O grau final (GFinal) dos aluno é calculado 
@@ -142,32 +142,51 @@ a este acrescimo os alunos que tiveram até 2 faltas inclusive, desde que seu gr
 final não ultrapasse a nota 10 (nota maximo). Esta coluna tem que ser criada por 
 meio de uma função e o método apply '''
 
-
 print('\n17 - dfGeral com coluna GFinal (Grau Final) ')
+def grauFinal(df):
+  valor = 0
+  if df['FALTAS'] <= 2:
+    df['GParcial'] += 0.5
+  if df['GParcial'] > 10:
+    df['GParcial'] = 10
+  return df['GParcial']
 
+dfGeral['GFinal'] = dfGeral.apply(grauFinal, axis=1)  
 
+print(dfGeral)
 ''' Exibir para cada aluno o valor do maior grau entre G1 e G2 ''' 
 print('\n18 - Aluno e o valor do maior grau: G1 ou G2 ')
-
+print(dfGeral[['G1', 'G2']].max(axis=1))
 
 ''' Exibir a quantidade de alunos por idade (tabela de frequencia) '''
 print('\n19 - Quantidade de alunos por idade ')
-
+print(dfDados.groupby('IDADE').size())
 
 '''Exibir graficamente (pizza) o percentual de meninas e de meninos '''
 print('\n20 - Graficamente o percentual de meninas e de meninos')
-
+dfDados.groupby('SEXO').size().plot.pie(autopct='%.1f')
+plt.show()
 
 ''' Incluir em dfGeral a coluna SitFinal com a situação de cada aluno:
     . FINAL se 0 <= grau final(GFinal) <= 6.0
     . APV_REG se 6 < grau final(GFinal) <= 8.0 
     . APV_MBOM se 8 < grau final(GFinal) <= 10.0 '''
 print('\n21 - dfGeral com coluna SitFinal (Situacao Final)')
+for index, row in dfGeral.iterrows():
+    if 0 <= row['GFinal'] <= 6:
+        dfGeral.loc[index,'SitFinal'] = 'FINAL'
+    elif 6 < row['GFinal'] <= 8:
+        dfGeral.loc[index,'SitFinal'] = 'APV_REG'
+    else:
+        dfGeral.loc[index,'SitFinal'] = 'APV_MBOM'
+print(dfGeral)
 
 ''' Para observar o impacto da frequencia no grau do aluno exibir as colunas GParcial, 
 SitParc, GFinal e SitFinal  do dfGeral '''
 print('\n22 - Impacto da frequencia no grau do aluno')
+print(dfGeral[['GParcial', 'SitParc', 'GFinal', 'SitFinal']])
 
 ''' Elimine as colunas GParcial e SitParc. Exiba dfGeral atualizado  '''
 print('\n23 - dfGeral final')
-
+dfGeral.drop(['GParcial', 'SitParc'], axis=1, inplace=True)
+print(dfGeral)
